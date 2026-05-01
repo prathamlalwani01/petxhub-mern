@@ -3,7 +3,7 @@ import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import notificationBellIcon from "../assets/notification-bell.png";
 
-const API_BASE_URL = "http://localhost:5000/api";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 function Navbar() {
   const user = JSON.parse(localStorage.getItem("user") || "null");

@@ -11,7 +11,7 @@ import heroBanner4 from "../assets/heroBanner4.jpg";
 import heroBanner5 from "../assets/heroBanner5.jpg";
 import heroBanner6 from "../assets/heroBanner6.jpg";
 
-const API_BASE_URL = "http://localhost:5000/api";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const HERO_BANNERS = [
   heroBanner1,
   heroBanner2,

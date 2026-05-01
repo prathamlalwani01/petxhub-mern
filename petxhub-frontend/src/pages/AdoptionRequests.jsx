@@ -19,8 +19,8 @@ function AdoptionRequests() {
             const headers = { Authorization: `Bearer ${token}` };
             
             const [incomingRes, outgoingRes] = await Promise.all([
-                axios.get("http://localhost:5000/api/adoptions/incoming", { headers }),
-                axios.get("http://localhost:5000/api/adoptions/outgoing", { headers })
+                axios.get(`${import.meta.env.VITE_API_BASE_URL}/adoptions/incoming`, { headers }),
+                axios.get(`${import.meta.env.VITE_API_BASE_URL}/adoptions/outgoing`, { headers })
             ]);
 
             setIncomingRequests(incomingRes.data.requests);
@@ -36,7 +36,7 @@ function AdoptionRequests() {
         try {
             const token = localStorage.getItem("token");
             await axios.put(
-                `http://localhost:5000/api/adoptions/${id}/status`,
+                `${import.meta.env.VITE_API_BASE_URL}/adoptions/${id}/status`,
                 { status },
                 { headers: { Authorization: `Bearer ${token}` } }
             );

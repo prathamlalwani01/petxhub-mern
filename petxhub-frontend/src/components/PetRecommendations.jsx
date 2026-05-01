@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const API_BASE_URL = "http://localhost:5000/api";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const ASSET_IMAGE_MODULES = import.meta.glob("../assets/*.{png,jpg,jpeg,webp,avif}", {
   eager: true,
   import: "default",

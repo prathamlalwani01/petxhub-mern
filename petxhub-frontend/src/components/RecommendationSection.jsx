@@ -18,11 +18,11 @@ function RecommendationSection() {
         // We can fetch trending services without auth potentially, but personalized requires it
         const headers = token ? { Authorization: `Bearer ${token}` } : {};
 
-        const resTrending = await axios.get("http://localhost:5000/api/recommendations/trending", { headers });
+        const resTrending = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/recommendations/trending`, { headers });
         let resPersonalized = { data: [] };
         
         if (token) {
-           resPersonalized = await axios.get("http://localhost:5000/api/recommendations/personalized", { headers });
+           resPersonalized = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/recommendations/personalized`, { headers });
         }
 
         setTrending(resTrending.data);

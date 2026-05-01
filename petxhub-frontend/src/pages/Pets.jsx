@@ -31,7 +31,7 @@ function Pets() {
                 const token = localStorage.getItem("token");
 
                 const res = await axios.get(
-                    "http://localhost:5000/api/pets",
+                    `${import.meta.env.VITE_API_BASE_URL}/pets`,
                     {
                         headers: {
                             Authorization: `Bearer ${token}`
@@ -58,7 +58,7 @@ function Pets() {
 
         try {
             const token = localStorage.getItem("token");
-            const res = await axios.post("http://localhost:5000/api/pets",
+            const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/pets`,
                 {
                     name,
                     breed,
@@ -96,7 +96,7 @@ function Pets() {
             const token = localStorage.getItem("token");
 
             await axios.delete(
-                `http://localhost:5000/api/pets/${id}`,
+                `${import.meta.env.VITE_API_BASE_URL}/pets/${id}`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -126,7 +126,7 @@ function Pets() {
     const handleUpdatePet = async (id) => {
         try {
             const token = localStorage.getItem("token");
-            const res = await axios.put(`http://localhost:5000/api/pets/${id}`,
+            const res = await axios.put(`${import.meta.env.VITE_API_BASE_URL}/pets/${id}`,
                 {
                     name: editName,
                     breed: editBreed,

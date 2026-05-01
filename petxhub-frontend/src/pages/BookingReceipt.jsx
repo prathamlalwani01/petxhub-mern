@@ -4,7 +4,7 @@ import axios from "axios";
 import Navbar from "../components/Navbar";
 import { formatCurrency } from "../utils/bookingPricing";
 
-const API_BASE_URL = "http://localhost:5000/api";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
 const getLocationText = (booking) => {
   if (booking.bookingCategory === "service") {

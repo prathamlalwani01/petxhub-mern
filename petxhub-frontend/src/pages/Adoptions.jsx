@@ -15,7 +15,7 @@ function Adoptions() {
         setLoading(true);
         try {
             const token = localStorage.getItem("token");
-            let url = "http://localhost:5000/api/pets/adoptable";
+            let url = `${import.meta.env.VITE_API_BASE_URL}/pets/adoptable`;
             if (locationQuery) {
                 url += `?location=${encodeURIComponent(locationQuery)}`;
             }
@@ -46,7 +46,7 @@ function Adoptions() {
         try {
             const token = localStorage.getItem("token");
             await axios.post(
-                "http://localhost:5000/api/adoptions",
+                `${import.meta.env.VITE_API_BASE_URL}/adoptions`,
                 { petId: selectedPet._id, message },
                 { headers: { Authorization: `Bearer ${token}` } }
             );

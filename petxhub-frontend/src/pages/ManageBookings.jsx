@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "../components/Navbar";
 
-const API_BASE_URL = "http://localhost:5000/api";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 const BOOKING_STATUSES = ["pending", "confirmed", "completed", "cancelled"];
 
 const getStatusTone = (status) => {
